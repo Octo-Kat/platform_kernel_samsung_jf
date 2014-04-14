@@ -9,11 +9,15 @@
  * published by the Free Software Foundation.
  */
 #include <linux/linkage.h>
+
+	.arch	armv7-a
+
 #include <asm/memory.h>
 
 #ifdef CONFIG_KEXEC_HARDBOOT
 #include <asm/kexec.h>
 #endif
+
 
 /*
  * Debugging stuff
