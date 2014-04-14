@@ -357,6 +357,20 @@ CC		= $(srctree)/scripts/gcc-wrapper.py $(REAL_CC)
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
+
+CUSTOM_FLAG	= -fgcse-sm -fsched-spec-load \
+		  -fforce-addr -fsingle-precision-constant \
+		  -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4 -ftree-vectorize  \
+		  -mvectorize-with-neon-quad -pipe -marm \
+		  -floop-interchange -ftree-loop-distribution -floop-strip-mine -floop-block \
+		  -fno-default-inline -fno-inline-functions-called-once -ffast-math
+
+ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
+CUSTOM_FLAG	+= -Os
+endif
+ifdef CONFIG_CC_OPTIMIZE_DEFAULT
+CUSTOM_FLAG	+= -O2
+endif
 ifdef CONFIG_CC_OPTIMIZE_ALOT
 MODFLAGS	= -DMODULE -O2 -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -fsingle-precision-constant -mcpu=cortex-a15 -mtune=cortex-a15 -fno-pic -marm -mfpu=neon-vfpv4 -ftree-vectorize -mvectorize-with-neon-quad
 else
