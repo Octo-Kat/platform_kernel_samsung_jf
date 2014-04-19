@@ -405,7 +405,7 @@ endif
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common -Wno-sizeof-pointer-memaccess \
-		   -Werror-implicit-function-declaration -Wno-aggressive-loop-optimizations \
+		   -Werror-implicit-function-declaration \
 		   -Wno-format-security -Wno-unused-function -Wno-array-bounds -Wno-uninitialized \
 		   -fno-delete-null-pointer-checks -Wno-unused-variable -Wno-maybe-uninitialized -Wno-cpp -Wno-declaration-after-statement
 ifdef CONFIG_CC_OPTIMIZE_ALOT
