@@ -1,3 +1,5 @@
+CFLAGS_mdp4_overlay.o += -Wno-aggressive-loop-optimizations
+
 ifeq ($(CONFIG_FB_MSM_MDSS),y)
 obj-y += mdss/
 else
